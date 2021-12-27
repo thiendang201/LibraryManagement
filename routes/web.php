@@ -25,15 +25,15 @@ Route::get('/', function () {
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
-Route::prefix('users')->group(function (){
-    Route::get('view', [UserController::class, 'index']);
-});
-
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function (){
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('home', [MainController::class, 'index']);
 
+        #User
+        Route::prefix('users')->group(function (){
+            Route::get('view', [UserController::class, 'index']);
+        });
 
         #DanhMuc
         Route::prefix('danhmuc')->group(function (){
