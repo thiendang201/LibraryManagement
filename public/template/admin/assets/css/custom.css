@@ -26,3 +26,19 @@
 .custom-btn + .custom-btn {
     margin-left: 4px;
 }
+
+.table-hover-custom>tbody>tr {
+    transition: all .5s;
+}
+
+.table-hover-custom>tbody>tr:hover {
+    background-color: rgba(134, 153, 219, 0.08);
+}
+
+.quyen {
+    color: #8699DB;
+    background-color: rgba(212, 208, 255, 0.25);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}

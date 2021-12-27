@@ -23,6 +23,14 @@ Route::get('/', function () {
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
-Route::get('admin/home', [MainController::class, 'index']);
+Route::prefix('users')->group(function (){
+    Route::get('view', [UserController::class, 'index']);
+});
 
-Route::get('admin/manager/users', [UserController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function (){
+        Route::get('/', [MainController::class, 'index'])->name('admin');
+        Route::get('home', [MainController::class, 'index']);
+
+    });
+});

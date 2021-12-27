@@ -68,9 +68,10 @@
                     <div class="card-header">
                         <h4>Danh sách người dùng</h4>
                     </div>
+
                     <div class="card-body" style="position: relative;">
                         <div class="table-responsive">
-                            <table class="table table-lg table-hover">
+                            <table class="table table-lg table-hover-custom">
                                 <thead>
                                 <tr>
                                     <th>HỌ TÊN</th>
@@ -80,20 +81,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="text-bold-500">Mikkey Mice</td>
-                                    <td>$15/hr</td>
-                                    <td class="text-bold-500">Animation</td>
-                                    <td>
-                                        <a class="edit-btn custom-btn" href="#"><i class="bi bi-pencil-fill"></i></a>
-                                        <button class="remove-btn custom-btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-                                                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
+                                {!! \App\Helpers\Helper::users($list) !!}
                                 </tbody>
                             </table>
                         </div>
