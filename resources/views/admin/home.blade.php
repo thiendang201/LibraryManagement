@@ -58,16 +58,13 @@
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 657px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 261px;"></div></div></div>
     </div>
     <div id="main">
-<<<<<<< HEAD
+
         @include('admin.alert')
 @yield('content')
 
 
 
 
-
-=======
->>>>>>> 6b499b94f3f9d6b4afda95f8123e8a271a247f16
     </div>
 </div>
 
