@@ -22,4 +22,26 @@ Route::get('/', function () {
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
-Route::get('admin/home', [MainController::class, 'index']);
+//Route::get('admin/home', [MainController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+    //
+    Route::prefix('admin')->group(function (){
+        Route::get('/', [MainController::class, 'index'])->name('admin');
+        Route::get('home', [MainController::class, 'index']);
+
+//        #Category
+//        Route::prefix('category')->group(function (){
+//            Route::get('add', [CategoryController::class, 'create']);
+//            Route::post('add', [CategoryController::class, 'store']);
+//            Route::get('list', [CategoryController::class, 'index']);
+//            Route::get('edit/{category}', [CategoryController::class, 'show']);
+//            Route::post('edit/{category}', [CategoryController::class, 'update']);
+//            Route::DELETE('destroy', [CategoryController::class, 'destroy']);
+//        });
+
+
+    });
+
+
+
+});
