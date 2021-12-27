@@ -29,7 +29,6 @@ class Helper
         }
         return $html;
     }
-<<<<<<< HEAD
     public static function danhMuc($danhMucs){
         $html='';
         foreach ($danhMucs as $key=>$danhMuc){
@@ -53,6 +52,4 @@ class Helper
         }
         return $html;
     }
-=======
->>>>>>> 6b499b94f3f9d6b4afda95f8123e8a271a247f16
 }

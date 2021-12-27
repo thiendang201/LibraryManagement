@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('home', [MainController::class, 'index']);
 
-<<<<<<< HEAD
+
         #DanhMuc
         Route::prefix('danhmuc')->group(function (){
             Route::get('add', [DanhMucController::class, 'create']);
@@ -56,7 +56,5 @@ Route::middleware(['auth'])->group(function () {
         });
 
 
-=======
->>>>>>> 6b499b94f3f9d6b4afda95f8123e8a271a247f16
     });
 });
