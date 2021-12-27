@@ -22,6 +22,7 @@ class CreateSachesTable extends Migration
             $table->string('NXB');
             $table->decimal('gia');
             $table->string('anhBia');
+            $table->unsignedBigInteger('danhMuc_id');
             $table->foreign('danhMuc_id')->references('id')->on('danhmucs')->onUpdate('restrict')->onDelete('cascade');
             $table->timestamps();
         });

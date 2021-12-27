@@ -14,12 +14,12 @@ class CreateChitietphieumuonsTable extends Migration
     public function up()
     {
         Schema::create('chitietphieumuons', function (Blueprint $table) {
-            $table->bigInteger("idSach");
-            $table->bigInteger("idPM");
+            $table->unsignedBigInteger("idSach");
+            $table->unsignedBigInteger("idPM");
             $table->date("ngayTra")->nullable(true);
             $table->timestamps();
             $table->primary(['idSach', 'idPM']);
-            $table->foreign('idSach')->references('id')->on('sachs')
+            $table->foreign('idSach')->references('id')->on('saches')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
             $table->foreign('idPM')->references('id')->on('phieumuons')

@@ -17,7 +17,7 @@ class CreatePhieumuonsTable extends Migration
             $table->id();
             $table->date("ngaymuon")->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->date("ngayhentra")->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->bigInteger("idNG");
+            $table->unsignedBigInteger("idNG");
             $table->timestamps();
 
             $table->foreign('idNG')->references('id')->on('users')
