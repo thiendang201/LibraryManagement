@@ -29,13 +29,13 @@
                         </a>
                     </li>
                     <li class="sidebar-item  ">
-                        <a href="index.html" class="sidebar-link">
+                        <a href="/admin/danhmuc/list" class="sidebar-link">
                             <i class="bi bi-grid"></i>
                             <span>QL Danh Mục</span>
                         </a>
                     </li>
                     <li class="sidebar-item  ">
-                        <a href="index.html" class="sidebar-link">
+                        <a href="/admin/sach/list" class="sidebar-link">
                             <i class="bi bi-book"></i>
                             <span>QL Sách</span>
                         </a>
@@ -58,7 +58,8 @@
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 657px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 261px;"></div></div></div>
     </div>
     <div id="main">
-
+        @include('admin.alert')
+@yield('content')
 
 
 

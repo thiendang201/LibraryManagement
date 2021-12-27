@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class danhmuc extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'tenDanhMuc'
+    ];
 }

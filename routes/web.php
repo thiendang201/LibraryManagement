@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DanhMucController;
+use App\Http\Controllers\Admin\SachController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
@@ -29,15 +31,25 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('home', [MainController::class, 'index']);
 
-//        #Category
-//        Route::prefix('category')->group(function (){
-//            Route::get('add', [CategoryController::class, 'create']);
-//            Route::post('add', [CategoryController::class, 'store']);
-//            Route::get('list', [CategoryController::class, 'index']);
-//            Route::get('edit/{category}', [CategoryController::class, 'show']);
-//            Route::post('edit/{category}', [CategoryController::class, 'update']);
-//            Route::DELETE('destroy', [CategoryController::class, 'destroy']);
-//        });
+        #DanhMuc
+        Route::prefix('danhmuc')->group(function (){
+            Route::get('add', [DanhMucController::class, 'create']);
+            Route::post('add', [DanhMucController::class, 'store']);
+            Route::get('list', [DanhMucController::class, 'index']);
+            Route::get('edit/{danhmuc}', [DanhMucController::class, 'show']);
+            Route::post('edit/{danhmuc}', [DanhMucController::class, 'update']);
+            Route::DELETE('destroy', [DanhMucController::class, 'destroy']);
+        });
+
+        #Sach
+        Route::prefix('sach')->group(function (){
+            Route::get('add', [SachController::class, 'create']);
+            Route::post('add', [SachController::class, 'store']);
+            Route::get('list', [SachController::class, 'index']);
+            Route::get('edit/{sach}', [SachController::class, 'show']);
+            Route::post('edit/{sach}', [SachController::class, 'update']);
+            Route::DELETE('destroy', [SachController::class, 'destroy']);
+        });
 
 
     });

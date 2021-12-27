@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/template/admin/assets/vendors/bootstrap-icons/bootstrap-icons.css">
 <link rel="stylesheet" href="/template/admin/assets/css/app.css">
 <link rel="shortcut icon" href="/template/admin/assets/images/favicon.svg" type="image/x-icon">
+@yield('header')
 <style type="text/css">.apexcharts-canvas {
         position: relative;
         user-select: none;
