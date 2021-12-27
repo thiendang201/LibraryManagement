@@ -15,7 +15,14 @@ class CreatePhieumuonsTable extends Migration
     {
         Schema::create('phieumuons', function (Blueprint $table) {
             $table->id();
+            $table->date("ngaymuon")->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date("ngayhentra")->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->bigInteger("idNG");
             $table->timestamps();
+
+            $table->foreign('idNG')->references('id')->on('users')
+                ->onUpdate('restrict')
+                ->onDelete('cascade');
         });
     }
 

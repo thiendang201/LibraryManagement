@@ -14,8 +14,17 @@ class CreateChitietphieumuonsTable extends Migration
     public function up()
     {
         Schema::create('chitietphieumuons', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger("idSach");
+            $table->bigInteger("idPM");
+            $table->date("ngayTra")->nullable(true);
             $table->timestamps();
+            $table->primary(['idSach', 'idPM']);
+            $table->foreign('idSach')->references('id')->on('sachs')
+                ->onUpdate('restrict')
+                ->onDelete('cascade');
+            $table->foreign('idPM')->references('id')->on('phieumuons')
+                ->onUpdate('restrict')
+                ->onDelete('cascade');
         });
     }
 
