@@ -15,6 +15,7 @@ class CreateDanhmucsTable extends Migration
     {
         Schema::create('danhmucs', function (Blueprint $table) {
             $table->id();
+            $table->string('tenDanhMuc');
             $table->timestamps();
         });
     }

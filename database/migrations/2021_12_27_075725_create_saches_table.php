@@ -15,6 +15,14 @@ class CreateSachesTable extends Migration
     {
         Schema::create('saches', function (Blueprint $table) {
             $table->id();
+            $table->string('tenSach');
+            $table->longText('moTa');
+            $table->integer('soLuong');
+            $table->string('tacGia');
+            $table->string('NXB');
+            $table->decimal('gia');
+            $table->string('anhBia');
+            $table->foreign('danhMuc_id')->references('id')->on('danhmucs')->onUpdate('restrict')->onDelete('cascade');
             $table->timestamps();
         });
     }
