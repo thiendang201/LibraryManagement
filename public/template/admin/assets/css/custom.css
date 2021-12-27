@@ -1,0 +1,44 @@
+.edit-btn {
+    color: #629CC6;
+    background-color: rgba(192,231,253,0.3);
+}
+
+.edit-btn i {
+    transform: translateY(-1px);
+}
+
+.remove-btn {
+    color: #F25379;
+    background-color: rgba(253, 192, 206, 0.3);
+}
+
+.custom-btn {
+    display: inline-flex;
+    text-decoration: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.custom-btn + .custom-btn {
+    margin-left: 4px;
+}
+
+.table-hover-custom>tbody>tr {
+    transition: all .5s;
+}
+
+.table-hover-custom>tbody>tr:hover {
+    background-color: rgba(134, 153, 219, 0.08);
+}
+
+.quyen {
+    color: #8699DB;
+    background-color: rgba(212, 208, 255, 0.25);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}

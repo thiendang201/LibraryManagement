@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SachController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,13 +25,16 @@ Route::get('/', function () {
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
-//Route::get('admin/home', [MainController::class, 'index']);
+Route::prefix('users')->group(function (){
+    Route::get('view', [UserController::class, 'index']);
+});
+
 Route::middleware(['auth'])->group(function () {
-    //
     Route::prefix('admin')->group(function (){
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('home', [MainController::class, 'index']);
 
+<<<<<<< HEAD
         #DanhMuc
         Route::prefix('danhmuc')->group(function (){
             Route::get('add', [DanhMucController::class, 'create']);
@@ -52,8 +56,7 @@ Route::middleware(['auth'])->group(function () {
         });
 
 
+=======
+>>>>>>> 6b499b94f3f9d6b4afda95f8123e8a271a247f16
     });
-
-
-
 });
