@@ -29,6 +29,10 @@ class LoginController extends Controller
         $this->validate($request, [
             'email'=> 'required|email:filter',
             'password'=> 'required'
+        ],
+        [
+            'email.required'=>'Bạn phải nhập email',
+            'password.required'=>'Bạn phải nhập password'
         ]);
         if (Auth::attempt([
             'email'=>$request-> input('email'),
