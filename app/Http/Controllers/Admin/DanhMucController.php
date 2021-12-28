@@ -54,14 +54,13 @@ class DanhMucController extends Controller
     public function show(danhmuc $danhMuc){
         return view('admin.danhmuc.edit', [
             'title' => 'Chỉnh sửa danh mục: ' . $danhMuc->tenDanhMuc,
-            'danhMuc' => $danhMuc,
-            'danhMucs' => $this->danhMucService->getParent()
+            'danhMuc' => $danhMuc
         ]);
     }
 
-    public function update(Category $category, CreateFormRequest $request){
-        $this->danhMucService->update($request, $category);
-        return redirect('/admin/category/list');
+    public function update(danhmuc $danhMuc, CreateFormRequest $request){
+        $this->danhMucService->update($request, $danhMuc);
+        return redirect('/admin/danhmuc/list');
     }
 
     public function destroy(Request $request): JsonResponse

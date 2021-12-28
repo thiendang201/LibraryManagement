@@ -41,8 +41,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('add', [DanhMucController::class, 'create']);
             Route::post('add', [DanhMucController::class, 'store']);
             Route::get('list', [DanhMucController::class, 'index']);
-            Route::get('edit/{danhmuc}', [DanhMucController::class, 'show']);
-            Route::post('edit/{danhmuc}', [DanhMucController::class, 'update']);
+            Route::get('edit/{danhMuc}', [DanhMucController::class, 'show']);
+            Route::post('edit/{danhMuc}', [DanhMucController::class, 'update']);
             Route::DELETE('destroy', [DanhMucController::class, 'destroy']);
         });
 
