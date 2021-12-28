@@ -14,6 +14,15 @@ class LoginController extends Controller
             'title' => 'Đăng nhập hệ thống'
         ]);
     }
+
+    private function makeActive()  {
+        Session::flash('thongke', true);
+        Session::forget('nguoidung');
+        Session::forget('danhmuc');
+        Session::forget('sach');
+        Session::forget('phieumuon');
+    }
+
     public function store(Request $request)
     {
 //        dd($request->input());
@@ -25,6 +34,7 @@ class LoginController extends Controller
             'email'=>$request-> input('email'),
             'password'=>$request->input('password')
         ], $request->input('remember'))){
+            $this->makeActive();
             return redirect()->route('admin');
         }
         Session::flash('error', 'Email hoặc mật khẩu không chính xác');

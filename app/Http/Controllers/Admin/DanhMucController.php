@@ -8,6 +8,7 @@ use App\Http\Services\DanhMuc\DanhMucService;
 use App\Models\danhmuc;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DanhMucController extends Controller
 {
@@ -16,6 +17,14 @@ class DanhMucController extends Controller
     public function __construct(DanhMucService $danhMucService)
     {
         $this->danhMucService = $danhMucService;
+    }
+
+    private function makeActive()  {
+        Session::flash('danhmuc', true);
+        Session::forget('nguoidung');
+        Session::forget('thongke');
+        Session::forget('sach');
+        Session::forget('phieumuon');
     }
 
     //
@@ -35,6 +44,7 @@ class DanhMucController extends Controller
 
     public function index()
     {
+        $this->makeActive();
         return view('admin.danhmuc.list', [
             'title' => 'Danh sách danh mục',
             'danhMucs' => $this->danhMucService->getAll()

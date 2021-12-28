@@ -22,31 +22,31 @@
                 <ul class="menu">
                     <li class="sidebar-title">Menu</li>
 
-                    <li class="sidebar-item active ">
+                    <li class="sidebar-item {{Session::has('thongke') ? 'active' : ''}}">
                         <a href="index.html" class="sidebar-link">
                             <i class="bi bi-bar-chart"></i>
                             <span>Thống Kê</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  ">
+                    <li class="sidebar-item {{Session::has('danhmuc') ? 'active' : ''}} ">
                         <a href="/admin/danhmuc/list" class="sidebar-link">
                             <i class="bi bi-grid"></i>
                             <span>QL Danh Mục</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  ">
+                    <li class="sidebar-item {{Session::has('sach') ? 'active' : ''}} ">
                         <a href="/admin/sach/list" class="sidebar-link">
                             <i class="bi bi-book"></i>
                             <span>QL Sách</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  ">
+                    <li class="sidebar-item {{Session::has('phieumuon') ? 'active' : ''}} ">
                         <a href="index.html" class="sidebar-link">
                             <i class="bi bi-card-list"></i>
                             <span>QL Phiếu Mượn</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  ">
+                    <li class="sidebar-item {{Session::has('nguoidung') ? 'active' : ''}} ">
                         <a href="/admin/users/view" class="sidebar-link">
                             <i class="bi bi-people"></i>
                             <span>QL Người Dùng</span>

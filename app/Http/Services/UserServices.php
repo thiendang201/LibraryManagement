@@ -9,6 +9,10 @@ class UserServices
 {
     public function getList()
     {
-        return User::orderbyDesc('ngayCapThe')->get(); //->paginate(2);
+        return User::all(); //->paginate(2);
+    }
+
+    public function NewUsers(int $limit) {
+        return User::orderbyDesc('ngayCapThe')->offset(0)->limit($limit)->get();
     }
 }
