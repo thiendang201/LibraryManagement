@@ -9,6 +9,6 @@ class UserServices
 {
     public function getList()
     {
-        return User::orderbyDesc('ngayCapThe')->paginate(2);
+        return User::orderbyDesc('ngayCapThe')->get(); //->paginate(2);
     }
 }

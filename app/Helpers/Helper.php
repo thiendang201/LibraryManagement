@@ -7,7 +7,7 @@ class Helper
     public static function users($list) {
         $html = "";
         foreach ($list as $key => $user) {
-            $quyen = $user->quyen == 0 ? 'Bạn đọc' : 'admin ne';
+            $quyen = $user->quyen == 0 ? 'Bạn đọc' : 'admin';
             $html.= '
                 <tr>
                      <td class="text-bold-500">'. $user->name .'</td>
