@@ -20,7 +20,7 @@
 @include('admin.alert')
                 <form action="./login/store" method="POST">
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="email" name="email" class="form-control form-control-xl" placeholder="email">
+                        <input type="email" name="email" class="form-control form-control-xl" placeholder="Email">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="form-check form-check-lg d-flex align-items-end">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="remember" name="remember">
                         <label class="form-check-label text-gray-600" for="flexCheckDefault">
                             Keep me logged in
                         </label>

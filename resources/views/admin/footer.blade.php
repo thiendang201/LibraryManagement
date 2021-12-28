@@ -6,4 +6,7 @@
 <script src="/template/admin/assets/js/pages/dashboard.js"></script>
 
 <script src="/template/admin/assets/js/mazer.js"></script>
+
+<script src="/template/admin/js/main.js"></script>
+
 @yield('footer')

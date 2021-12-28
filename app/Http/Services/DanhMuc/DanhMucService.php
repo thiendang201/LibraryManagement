@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 class DanhMucService
 {
     public function getAll(){
-        return DanhMuc::orderbyDesc('id')->paginate(20);
+        return DanhMuc::orderBy('id')->paginate(20);
     }
 
     public function create($request)
@@ -45,9 +45,9 @@ class DanhMucService
 
     public function destroy($request){
         $id=(int) $request->input('id');
-        $DanhMuc=DanhMuc::where('id', $id)->first();
-        if ($DanhMuc){
-            return DanhMuc::where('id', $id)->orWhere('parent_id', $id)->delete();
+        $danhMuc=DanhMuc::where('id', $id)->first();
+        if ($danhMuc){
+            return DanhMuc::where('id', $id)->delete();
         }
         return false;
     }
