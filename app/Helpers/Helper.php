@@ -43,6 +43,9 @@ class Helper
 
     private static function DateUpdate($date1): string
     {
+        if ($date1 == null)
+            return "Không xác định";
+
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date2 = Carbon::now();
 
