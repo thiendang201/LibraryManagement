@@ -10,7 +10,7 @@ class Helper
     {
         $html = "";
         foreach ($list as $key => $user) {
-            $avatar = $user->GioiTinh == 0 ? '5.jpg' : '1.jpg';
+            $avatar = $user->GioiTinh == 0 ? 'avt-nu.png' : 'avt-nam.png';
             $quyen = $user->quyen == 0 ? 'Bạn đọc' : 'admin';
             $html.= '
                 <tr>
@@ -66,8 +66,7 @@ class Helper
     {
         $html = "";
         foreach ($list as $key => $user) {
-            $avatar = $user->GioiTinh == 0 ? '5.jpg' : '1.jpg';
-            $quyen = $user->quyen == 0 ? 'Bạn đọc' : 'admin';
+            $avatar = $user->GioiTinh == 0 ? 'avt-nu.png' : 'avt-nam.png';
             $html.= '
                 <div class="recent-message d-flex px-4 py-3">
                         <div class="avatar avatar-lg">
