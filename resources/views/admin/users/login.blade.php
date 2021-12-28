@@ -9,10 +9,10 @@
 <body>
 <div id="auth">
 
-    <div class="row h-100 justify-content-center ">
-        <div class="col-lg-5 col-12">
+    <div class="d-flex justify-content-center ">
+        <div class="col-lg-4 col-12">
             <div >
-                <h1 class="auth-title mb-10">Đăng Nhập.</h1>
+                <h1 class="auth-title mb-10 mt-10">Đăng Nhập</h1>
                 @include('admin.alert')
                 <form action="./login/store" method="POST">
                     <div class="form-group position-relative has-icon-left mb-4">
