@@ -4,28 +4,28 @@ $.ajaxSetup({
     }
 });
 
-function removeRow(id, url){
-    if (confirm('Bạn có muốn xoá không?')){
+function removeRow(id, url) {
+    if (confirm('Bạn có muốn xoá không?')) {
         $.ajax({
             type: 'DELETE',
             datatype: 'JSON',
-            data: { id },
+            data: {id},
             url: url,
-            success: function (result){
-                if (result.error==false){
+            success: function (result) {
+                if (result.error == false) {
                     alert(result.message);
                     location.reload();
-                }
-                else{
+                } else {
                     alert('Xoá lỗi. Vui lòng thử lại');
                 }
             }
         })
     }
 }
+
 /*Upload file*/
-$('#upload').change(function (){
-    const form=new FormData();
+$('#upload').change(function () {
+    const form = new FormData();
     form.append('file', $(this)[0].files[0]);
 
     $.ajax({
@@ -35,15 +35,15 @@ $('#upload').change(function (){
         dataType: 'JSON',
         data: form,
         url: '/admin/upload/services',
-        success: function (results){
-            if (results.error==false){
-                $('#image_show').html('<a href="' + results.url + '" target="_blank">'+
+        success: function (results) {
+            if (results.error == false) {
+                $('#image_show').html('<a href="' + results.url + '" target="_blank">' +
                     '<img src="' + results.url + '" width="100px"></a>');
                 $('#file').val(results.url);
-            }
-            else{
+            } else {
                 alert('Upload file lỗi');
             }
         }
     });
 });
+

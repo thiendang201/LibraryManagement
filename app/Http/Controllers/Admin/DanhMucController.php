@@ -59,9 +59,9 @@ class DanhMucController extends Controller
         ]);
     }
 
-    public function update(Category $category, CreateFormRequest $request){
-        $this->danhMucService->update($request, $category);
-        return redirect('/admin/category/list');
+    public function update(DanhMuc $danhMuc, CreateFormRequest $request){
+        $this->danhMucService->update($request, $danhMuc);
+        return redirect('/admin/danhmuc/list');
     }
 
     public function destroy(Request $request): JsonResponse
