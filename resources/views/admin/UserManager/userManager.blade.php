@@ -13,7 +13,7 @@
                             <h4 class="card-title">Danh sách người dùng</h4>
                         </div>
                         <div class="col-12 col-lg-3 d-flex justify-content-end">
-                            <a href="#" class="btn btn-outline-info">Thêm mới</a>
+                            <a href="/admin/users/add" class="btn btn-outline-info">Thêm mới</a>
                         </div>
                     </div>
                 </div>

@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         #User
         Route::prefix('users')->group(function (){
             Route::get('view', [UserController::class, 'index']);
+            Route::get('add', [UserController::class, 'create']);
         });
 
         #DanhMuc

@@ -31,4 +31,10 @@ class UserController extends Controller
             'newUsers' => $this->userService->NewUsers(3)
         ]);
     }
+
+    public function create() {
+        return view('admin/UserManager/createUser', [
+            'title' => 'Thêm người dùng'
+        ]);
+    }
 }
