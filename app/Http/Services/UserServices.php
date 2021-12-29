@@ -58,4 +58,13 @@ class UserServices
         Session::flash('success', 'Cập nhật thành công');
         return true;
     }
+
+    public function destroy($request){
+        $id = (int) $request->input('id');
+        $user = User::where('id', $id)->first();
+        if ($user){
+            return User::where('id', $id)->delete();
+        }
+        return false;
+    }
 }

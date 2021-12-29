@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\users\CreateUserRequest;
 use App\Http\Requests\users\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Services\UserServices;
 use Illuminate\Support\Facades\Session;
@@ -56,5 +57,19 @@ class UserController extends Controller
     public function update(User $user, UpdateUserRequest $request){
         $this->userService->update($request, $user);
         return redirect('admin/users/view');
+    }
+
+    public function destroy(Request $request): JsonResponse
+    {
+        $result = $this->userService->destroy($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'Xoá người dùng thành công!'
+            ]);
+        }
+        return response()->json([
+            'error' => true
+        ]);
     }
 }

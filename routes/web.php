@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add', [UserController::class, 'store']);
             Route::get('edit/{user}', [UserController::class, 'show']);
             Route::post('edit/{user}', [UserController::class, 'update']);
+            Route::DELETE('destroy', [UserController::class, 'destroy']);
         });
 
         #DanhMuc
