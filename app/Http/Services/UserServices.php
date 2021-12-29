@@ -15,7 +15,7 @@ class UserServices
     }
 
     public function NewUsers(int $limit) {
-        return User::orderbyDesc('ngayCapThe')->offset(0)->limit($limit)->get();
+        return User::orderbyDesc('created_at')->offset(0)->limit($limit)->get();
     }
 
     public function Create($request): bool
@@ -43,6 +43,19 @@ class UserServices
             Session::flash('error', $err->getMessage());
             return false;
         }
+        return true;
+    }
+
+    public function update($request, $user) : bool
+    {
+        $user->name= (string) $request->input('name');
+        $user->email= (string) $request->input('email');
+        $user->SDT=(string) $request->input('SDT');
+        $user->GioiTinh=(int) $request->input('gioiTinh');
+        $user->diaChi=(string) $request->input('diaChi');
+        $user->quyen= (int) $request->input('quyen');
+        $user->save();
+        Session::flash('success', 'Cập nhật thành công');
         return true;
     }
 }

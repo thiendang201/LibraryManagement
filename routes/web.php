@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('view', [UserController::class, 'index']);
             Route::get('add', [UserController::class, 'create']);
             Route::post('add', [UserController::class, 'store']);
+            Route::get('edit/{user}', [UserController::class, 'show']);
+            Route::post('edit/{user}', [UserController::class, 'update']);
         });
 
         #DanhMuc

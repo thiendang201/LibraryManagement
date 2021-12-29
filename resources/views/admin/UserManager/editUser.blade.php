@@ -1,5 +1,3 @@
-
-
 @extends('admin.home')
 
 @section('content')
@@ -10,7 +8,7 @@
     </nav>
 
     <div class="page-heading custom-padding-inline">
-        <h3>Cập nhật thông tin người dùng</h3>
+        <h3>Thêm người dùng mới</h3>
     </div>
 
     <div class="container">
@@ -34,7 +32,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="first-name-icon">Họ tên</label>
                                                         <div class="position-relative visible-invalid">
-                                                            <input type="text" class="@error('name') is-invalid @enderror form-control" name="name" placeholder="Họ tên người dùng" id="first-name-icon">
+                                                            <input value="{{$user->name}}" type="text" class="@error('name') is-invalid @enderror form-control" name="name" placeholder="Họ tên người dùng" id="first-name-icon">
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-person"></i>
                                                             </div>
@@ -48,10 +46,10 @@
                                                 <div class="col-12 form-group">
                                                     <label>Giới tính</label>
                                                     <div>
-                                                        <input type="radio" class="btn-check" value="1" name="gioiTinh" id="gt-nam" autocomplete="off" checked="">
+                                                        <input type="radio" class="btn-check" value="1" name="gioiTinh" id="gt-nam" autocomplete="off" @if($user->GioiTinh == 1) checked @endif >
                                                         <label class="btn btn-outline-primary me-1" for="gt-nam">Nam</label>
 
-                                                        <input type="radio" class="btn-check" value="0" name="gioiTinh" id="gt-nu" autocomplete="off">
+                                                        <input type="radio" class="btn-check" value="0" name="gioiTinh" id="gt-nu" autocomplete="off" @if($user->GioiTinh == 0) checked @endif >
                                                         <label class="btn btn-outline-primary" for="gt-nu">Nữ</label>
                                                     </div>
                                                 </div>
@@ -60,8 +58,8 @@
                                                     <label for="basicSelect">Quyền</label>
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect" name="quyen">
-                                                            <option value="0">Bạn đọc</option>
-                                                            <option value="1">Admin</option>
+                                                            <option @if($user->GioiTinh == 0) selected @endif value="0">Bạn đọc</option>
+                                                            <option @if($user->GioiTinh == 1) selected @endif value="1">Admin</option>
                                                         </select>
                                                     </fieldset>
                                                 </div>
@@ -72,7 +70,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="email-id-icon">Email</label>
                                                         <div class="position-relative visible-invalid">
-                                                            <input type="text" name="email" class="@error('email') is-invalid @enderror form-control" placeholder="Email của người dùng" id="email-id-icon">
+                                                            <input value="{{$user->email}}" type="text" name="email" class="@error('email') is-invalid @enderror form-control" placeholder="Email của người dùng" id="email-id-icon">
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-envelope"></i>
                                                             </div>
@@ -86,7 +84,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="mobile-id-icon">Số điện thoại</label>
                                                         <div class="position-relative visible-invalid">
-                                                            <input type="text" name="SDT" class="@error('SDT') is-invalid @enderror form-control" placeholder="Số điện thoại của người dùng" id="mobile-id-icon">
+                                                            <input value="{{$user->SDT}}" type="text" name="SDT" class="@error('SDT') is-invalid @enderror form-control" placeholder="Số điện thoại của người dùng" id="mobile-id-icon">
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-phone"></i>
                                                             </div>
@@ -100,7 +98,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="password-id-icon">Địa chỉ</label>
                                                         <div class="position-relative">
-                                                            <input type="text" name="diaChi" class="form-control" placeholder="Địa chỉ của người dùng" id="password-id-icon">
+                                                            <input value="{{$user->diaChi}}" type="text" name="diaChi" class="form-control" placeholder="Địa chỉ của người dùng" id="password-id-icon">
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-lock"></i>
                                                             </div>
@@ -108,7 +106,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 d-flex justify-content-end">
-                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Thêm</button>
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Cập nhật</button>
                                                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">Làm mới</button>
                                                 </div>
                                             </div>
@@ -139,4 +137,3 @@
         }
     </script>
 @endsection
-

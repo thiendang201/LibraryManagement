@@ -27,7 +27,7 @@ class Helper
                          <span class="quyen">'. $quyen .'</span>
                      </td>
                      <td class="text-center">
-                         <a class="edit-btn custom-btn" href="#"><i class="bi bi-pencil-fill"></i></a>
+                         <a class="edit-btn custom-btn" href="edit/'. $user->id .'"><i class="bi bi-pencil-fill"></i></a>
                          <button class="remove-btn custom-btn">
                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                  <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
@@ -48,8 +48,9 @@ class Helper
 
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date2 = Carbon::now();
-
-        $interval = $date1->diff($date2);
+        $to = Carbon::createFromFormat('Y-m-d H:i:s',  $date1);
+        $from = Carbon::createFromFormat('Y-m-d H:i:s',  $date2);
+        $interval = $to->diff($from);
 
         if($interval->d > 1)
             return date("d/m/Y", $date1->getTimestamp());

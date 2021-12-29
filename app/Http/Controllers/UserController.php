@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\users\CreateUserRequest;
+use App\Http\Requests\users\UpdateUserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Services\UserServices;
 use Illuminate\Support\Facades\Session;
@@ -29,7 +31,7 @@ class UserController extends Controller
         return view('admin/UserManager/userManager', [
             'title' => 'Quản lý người dùng',
             'list' => $this->userService->getList(),
-            'newUsers' => $this->userService->NewUsers(3)
+            'newUsers' => $this->userService->NewUsers(4)
         ]);
     }
 
@@ -41,6 +43,18 @@ class UserController extends Controller
 
     public function store(CreateUserRequest $request) {
         $this->userService->create($request);
+        return redirect('admin/users/view');
+    }
+
+    public function show(User $user){
+        return view('admin/UserManager/editUser', [
+            'title' => 'Cập nhật thông tin người dùng ',
+            'user' => $user
+        ]);
+    }
+
+    public function update(User $user, UpdateUserRequest $request){
+        $this->userService->update($request, $user);
         return redirect('admin/users/view');
     }
 }
