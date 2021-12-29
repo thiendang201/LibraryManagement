@@ -17,38 +17,49 @@
                                     <label>Tên sách</label>
                                 </div>
                                 <div class="col-md-8 form-group">
-                                    <input type="text" id="tenSach" class="form-control" name="tenSach" placeholder="Nhập tên sách">
+                                    <input type="text" id="tenSach" value="{{old('tenSach')}}" class="form-control" name="tenSach" placeholder="Nhập tên sách">
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Thể loại</label>
+                                </div>
+                                <div class="col-md-8 form-group">
+{{--                                    <input type="text" id="theLoai" class="form-control" name="theLoai" placeholder="Nhập thể loại">--}}
+                                    <select class="form-control" name="danhMuc_id">
+                                        @foreach($danhMucs as $danhMuc)
+                                            <option value="{{ $danhMuc->id }}">{{ $danhMuc->tenDanhMuc }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Mô tả</label>
                                 </div>
                                 <div class="col-md-8 form-group">
 {{--                                    <input type="text" id="moTa" class="form-control" name="moTa" placeholder="Nhập mô tả">--}}
-                                    <textarea id="content" name="moTa" class="form-control"></textarea>
+                                    <textarea id="content" name="moTa" class="form-control">{{old('moTa')}}</textarea>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Số lượng</label>
                                 </div>
                                 <div class="col-md-8 form-group">
-                                    <input type="text" id="soLuong" class="form-control" name="soLuong" placeholder="Nhập số lượng">
+                                    <input type="text" id="soLuong" class="form-control" name="soLuong" value="{{old('soLuong')}}" placeholder="Nhập số lượng">
                                 </div>
                                 <div class="col-md-4">
                                     <label>Tác giả</label>
                                 </div>
                                 <div class="col-md-8 form-group">
-                                    <input type="text" id="tacGia" class="form-control" name="tacGia" placeholder="Nhập tên tác giả">
+                                    <input type="text" id="tacGia" class="form-control" name="tacGia" value="{{old('tacGia')}}" placeholder="Nhập tên tác giả">
                                 </div>
                                 <div class="col-md-4">
                                     <label>Nhà xuất bản</label>
                                 </div>
                                 <div class="col-md-8 form-group">
-                                    <input type="text" id="nxb" class="form-control" name="nxb" placeholder="Nhập nhà xuất bản">
+                                    <input type="text" id="NXB" class="form-control" name="NXB" value="{{old('NXB')}}" placeholder="Nhập nhà xuất bản">
                                 </div>
                                 <div class="col-md-4">
                                     <label>Giá sách</label>
                                 </div>
                                 <div class="col-md-8 form-group">
-                                    <input type="text" id="gia" class="form-control" name="gia" placeholder="Nhập giá quyển sách">
+                                    <input type="text" id="gia" class="form-control" name="gia" value="{{old('gia')}}" placeholder="Nhập giá quyển sách">
                                 </div>
                                 <div class="col-md-4">
                                     <label>Ảnh bìa</label>
@@ -59,7 +70,7 @@
                                     <div id="image_show">
 
                                     </div>
-                                    <input id="file" type="hidden" name="file">
+                                    <input id="anhBia" type="hidden" name="anhBia">
                                 </div>
                                 <div class="col-sm-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary me-1 mb-1">Thêm mới</button>

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Sach;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFormRequest extends FormRequest
+class SachRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CreateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class CreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tenSach'=>'required'
+        ];
+    }
+    public function messages() : array
+    {
+        return [
+            'tenSach.required' => 'Vui lòng nhập tên sách'
         ];
     }
 }
