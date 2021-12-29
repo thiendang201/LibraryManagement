@@ -57,6 +57,9 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [SachController::class, 'destroy']);
         });
 
+        #Upload
+        Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
+
 
     });
 });
