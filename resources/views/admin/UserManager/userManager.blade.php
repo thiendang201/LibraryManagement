@@ -55,4 +55,29 @@
             </div>
         </div>
     </div>
+
+    <!-- Vertically Centered modal Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable  w-25" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Bạn có chắc muốn xóa không?
+                    </h5>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Hủy</span>
+                    </button>
+                    <button type="button" id="delete-user" class="btn btn-primary ml-1" data-id="" data-bs-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Xóa</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
 @endsection
