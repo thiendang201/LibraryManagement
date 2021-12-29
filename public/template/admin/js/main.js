@@ -87,7 +87,7 @@ function renderUsers(list) {
     return html;
 }
 
-function Search(idInput, url, idNullFeedback, idTable) {
+function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
     const input = document.getElementById(idInput);
     const nullFeedBack = document.getElementById(idNullFeedback);
     const table = document.getElementById(idTable);
@@ -104,7 +104,7 @@ function Search(idInput, url, idNullFeedback, idTable) {
                     data: {keyword},
                     url: url,
                     success: function (result) {
-                        table.innerHTML = renderUsers(result.list);
+                        table.innerHTML = renderFunc(result.list);
                         nullFeedBack.innerText = result.message;
                     }
                 })
@@ -113,5 +113,5 @@ function Search(idInput, url, idNullFeedback, idTable) {
     }
 }
 
-Search('search-user', '/admin/users/search', 'users-null', 'user-table');
+Search('search-user', '/admin/users/search', 'users-null', 'user-table', renderUsers);
 
