@@ -11,7 +11,7 @@ class danhmuc extends Model
     protected $fillable=[
         'tenDanhMuc'
     ];
-//    public function saches(){
-//        return$this->hasMany(sach::class, 'danhMuc_id', 'id');
-//    }
+    public function saches(){
+        return$this->hasMany(sach::class, 'danhMuc_id', 'id');
+    }
 }
