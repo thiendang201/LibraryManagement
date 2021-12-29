@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{user}', [UserController::class, 'show']);
             Route::post('edit/{user}', [UserController::class, 'update']);
             Route::DELETE('destroy', [UserController::class, 'destroy']);
+            Route::post('search', [UserController::class, 'search']);
         });
 
         #DanhMuc

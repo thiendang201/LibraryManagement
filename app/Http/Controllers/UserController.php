@@ -9,6 +9,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Services\UserServices;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Type;
+use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
 {
@@ -70,6 +72,16 @@ class UserController extends Controller
         }
         return response()->json([
             'error' => true
+        ]);
+    }
+
+    public function search(Request $request): JsonResponse
+    {
+        $result = $this->userService->search($request);
+        return response()->json([
+            'list' => $result,
+            'message' => $result != null  ? "" : "Không tìm thấy người dùng nào!",
+            'keyword' => $request->input('keyword').gettype($result)
         ]);
     }
 }

@@ -60,3 +60,8 @@
 .visible-invalid ~ .invalid-feedback {
     display: block;
 }
+
+.null-feedback {
+    text-align: center;
+    margin-top: 50px;
+}

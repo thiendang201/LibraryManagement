@@ -20,13 +20,13 @@
                 <div class="card-content">
                     <div class="card-body">
                         <div class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm người dùng">
+                            <input type="text" id="search-user" class="form-control" placeholder="Tìm kiếm người dùng">
                             <div class="form-control-icon">
                                 <i class="bi bi-search"></i>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class=" table table-lg table-hover-custom">
+                            <table id="user-table" class=" table table-lg table-hover-custom">
                                 <thead>
                                 <tr>
                                     <th>HỌ TÊN</th>
@@ -39,6 +39,7 @@
                                 {!! \App\Helpers\Helper::users($list) !!}
                                 </tbody>
                             </table>
+                            <div id="users-null" class="null-feedback"></div>
                         </div>
                     </div>
                 </div>

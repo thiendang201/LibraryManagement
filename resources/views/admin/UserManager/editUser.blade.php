@@ -17,7 +17,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-5 d-flex justify-content-center">
                         <div class="avatar avatar-custom">
-                            <img src="/template/admin/assets/images/faces/avt-nam.png" id="avt-user" alt="Face 1">
+                            @if($user->GioiTinh == 1)
+                                <img src="/template/admin/assets/images/faces/avt-nam.png" id="avt-user" alt="Face 1">
+                            @else
+                                <img src="/template/admin/assets/images/faces/avt-nu.png" id="avt-user" alt="Face 1">
+                            @endif
                         </div>
                     </div>
                     <div class="col-12 col-lg-7">
