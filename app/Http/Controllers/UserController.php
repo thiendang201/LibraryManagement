@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\users\CreateUserRequest;
 use Illuminate\Http\Request;
 use App\Http\Services\UserServices;
 use Illuminate\Support\Facades\Session;
@@ -36,5 +37,10 @@ class UserController extends Controller
         return view('admin/UserManager/createUser', [
             'title' => 'Thêm người dùng'
         ]);
+    }
+
+    public function store(CreateUserRequest $request) {
+        $this->userService->create($request);
+        return redirect('admin/users/view');
     }
 }

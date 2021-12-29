@@ -56,3 +56,7 @@
 .padding-0 {
     padding: 0 !important;
 }
+
+.visible-invalid ~ .invalid-feedback {
+    display: block;
+}
