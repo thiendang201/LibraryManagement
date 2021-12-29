@@ -55,11 +55,11 @@
                                 </div>
                                 <div class="col-md-8 form-group">
 {{--                                    <input type="text" id="anhBia" class="form-control" name="anhBia" placeholder="Chọn ảnh bìa">--}}
-                                    <input type="file" class="form-control" id="upload">
+                                    <input  id="upload" name="file" class="form-control" type="file">
                                     <div id="image_show">
 
                                     </div>
-                                    <input type="hidden" name="file" id="file">
+                                    <input id="file" type="hidden" name="file">
                                 </div>
                                 <div class="col-sm-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary me-1 mb-1">Thêm mới</button>
