@@ -39,7 +39,7 @@ class DanhMucController extends Controller
     {
 //        dd($request->input());
         $this->danhMucService->create($request);
-        return redirect()->back();
+        return redirect('admin/danhmuc/list');
     }
 
     public function index()

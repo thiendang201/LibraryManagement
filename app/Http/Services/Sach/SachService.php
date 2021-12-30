@@ -17,6 +17,10 @@ class SachService
             Session::flash('error', 'Giá sách phải lớn hơn 0');
             return false;
         }
+        if ($request->input('soLuong')<=0){
+            Session::flash('error', 'Số lượng sách phải lớn hơn 0');
+            return false;
+        }
         return true;
     }
 

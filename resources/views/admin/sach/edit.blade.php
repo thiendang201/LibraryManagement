@@ -6,7 +6,7 @@
     <div class="col-md-6 col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Thêm sách</h4>
+                <h4 class="card-title">Chỉnh sửa sách</h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
@@ -16,13 +16,13 @@
                                 <div class="col-md-4">
                                     <label>Tên sách</label>
                                 </div>
-                                <div class="col-md-8 form-group">
+                                <div class="position-relative visible-invalid">
                                     <input type="text" id="tenSach" value="{{$sach->tenSach}}" class="form-control" name="tenSach" placeholder="Nhập tên sách">
                                 </div>
                                 <div class="col-md-4">
                                     <label>Thể loại</label>
                                 </div>
-                                <div class="col-md-8 form-group">
+                                <div class="position-relative visible-invalid">
                                     {{--                                    <input type="text" id="theLoai" class="form-control" name="theLoai" placeholder="Nhập thể loại">--}}
                                     <select class="form-control" name="danhMuc_id">
                                         @foreach($danhMucs as $danhMuc)
@@ -33,7 +33,7 @@
                                 <div class="col-md-4">
                                     <label>Mô tả</label>
                                 </div>
-                                <div class="col-md-8 form-group">
+                                <div class="position-relative visible-invalid">
                                     {{--                                    <input type="text" id="moTa" class="form-control" name="moTa" placeholder="Nhập mô tả">--}}
                                     <textarea id="content" name="moTa" class="form-control">{{$sach->moTa}}</textarea>
                                 </div>

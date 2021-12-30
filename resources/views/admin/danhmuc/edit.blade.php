@@ -16,8 +16,14 @@
                                 <div class="col-md-4">
                                     <label>Tên danh mục</label>
                                 </div>
-                                <div class="col-md-8 form-group">
-                                    <input type="text" id="tenDanhMuc" value="{{$danhMuc->tenDanhMuc}}" class="form-control" name="tenDanhMuc" placeholder="Nhập tên danh mục">
+{{--                                <div class="col-md-8 form-group">--}}
+{{--                                    <input type="text" id="tenDanhMuc" value="{{$danhMuc->tenDanhMuc}}" class="form-control" name="tenDanhMuc" placeholder="Nhập tên danh mục">--}}
+{{--                                </div>--}}
+                                <div class="position-relative visible-invalid">
+                                    <input type="text" value="{{$danhMuc->tenDanhMuc}}" class="@error('tenDanhMuc') is-invalid @enderror form-control" name="tenDanhMuc" placeholder="Nhập tên danh mục" id="first-name-icon">
+                                </div>
+                                <div class="invalid-feedback">
+                                    @error('tenDanhMuc') {{$message}} @enderror
                                 </div>
                                 <div class="col-sm-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary me-1 mb-1">Chỉnh sửa</button>
