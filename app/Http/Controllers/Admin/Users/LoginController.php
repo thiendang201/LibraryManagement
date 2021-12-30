@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -39,9 +40,23 @@ class LoginController extends Controller
             'password'=>$request->input('password')
         ], $request->input('remember'))){
             $this->makeActive();
-            return redirect()->route('admin');
+//            dd($this->getUser($request));
+            $role=$this->getUser($request);
+            if ($role==1)
+                return redirect()->route('admin');
+            else{
+                Session::flash('error', 'Vui lòng đăng nhập với tài khoản admin');
+                return redirect()->back();
+            }
+
         }
         Session::flash('error', 'Email hoặc mật khẩu không chính xác');
         return redirect()->back();
+    }
+
+    public function getUser(Request $request){
+        $id=(String) $request->input('email');
+        $user=User::where('email', $id)->first();
+        return $user->quyen;
     }
 }
