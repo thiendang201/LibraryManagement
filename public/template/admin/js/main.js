@@ -40,7 +40,7 @@ $('#upload').change(function () {
             if (results.error===false){
                 $('#image_show').html('<a href="' + results.url + '" target="_blank">'+
                     '<img src="' + results.url + '" width="100px"></a>');
-                $('#file').val(results.url);
+                $('#anhBia').val(results.url);
             }
             else{
                 alert('Upload file lỗi');
@@ -87,6 +87,67 @@ function renderUsers(list) {
     return html;
 }
 
+function renderSaches(list) {
+    let html = "";
+
+    if(list == null) return "";
+
+    list.forEach(sach => {
+        console.log(sach);
+        html += `
+            <tr>
+                <td class="text-center">${sach.id}</td>
+                <td class="text-center">${sach.tenSach}</td>
+                <td class="text-center">${sach.moTa}</td>
+                <td class="text-center">${sach.soLuong}</td>
+                <td class="text-center">${sach.tacGia}</td>
+                <td class="text-center">${sach.NXB}</td>
+                <td class="text-center">${sach.gia}</td>
+                <td class="text-center">${sach.danhMuc.tenDanhMuc}</td>
+                <td class="text-center">${sach.anhBia}</td>
+                <td class="text-center">
+                    <a class="edit-btn custom-btn" href="edit/${sach.id}"><i class="bi bi-pencil-fill"></i></a>
+                         <button class="remove-btn custom-btn" onclick="removeRow(${sach.id},'/admin/sach/destroy')" >
+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                 <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                 <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                             </svg>
+                         </button>
+
+                     </td>
+                </tr>
+        `;
+    });
+    return html;
+}
+
+function renderDanhMucs(list) {
+    let html = "";
+
+    if(list == null) return "";
+
+    list.forEach(danhMuc => {
+        console.log(danhMuc);
+        html += `
+            <tr>
+                     <td class="text-center">${danhMuc.id}</td>
+                     <td class="text-center">${danhMuc.tenDanhMuc}</td>
+                     <td class="text-center">
+                         <a class="edit-btn custom-btn" href="edit/${danhMuc.id}"><i class="bi bi-pencil-fill"></i></a>
+                         <button class="remove-btn custom-btn" onclick="removeRow(${danhMuc.id},'/admin/danhmuc/destroy')" >
+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                 <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                 <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                             </svg>
+                         </button>
+
+                     </td>
+                </tr>
+        `;
+    });
+    return html;
+}
+
 function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
     const input = document.getElementById(idInput);
     const nullFeedBack = document.getElementById(idNullFeedback);
@@ -104,6 +165,12 @@ function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
                     data: {keyword},
                     url: url,
                     success: function (result) {
+                        // if(renderFunc!=null) {
+                        //     table.innerHTML = renderFunc(result.list);
+                        // }
+                        // else{
+                        //     table.innerHTML=result.list;
+                        // }
                         table.innerHTML = renderFunc(result.list);
                         nullFeedBack.innerText = result.message;
                     }
@@ -113,5 +180,8 @@ function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
     }
 }
 
-Search('search-user', '/admin/users/search', 'users-null', 'user-table', renderUsers);
 
+
+Search('search-user', '/admin/users/search', 'users-null', 'user-table', renderUsers);
+Search('search-sach', '/admin/sach/search', 'saches-null', 'sach-table', renderSaches);
+Search('search-danhMuc', '/admin/danhmuc/search', 'danhMucs-null', 'danhMuc-table', renderDanhMucs);

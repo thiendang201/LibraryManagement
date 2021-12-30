@@ -46,4 +46,11 @@ class DanhMucService
         }
         return false;
     }
+
+    public function search($request){
+        $keyword = (string) $request->input('keyword');
+        $rs = danhmuc::where('tenDanhMuc', 'like', "%".$keyword."%")->get();
+
+        return count($rs) == 0 ? null : $rs;
+    }
 }

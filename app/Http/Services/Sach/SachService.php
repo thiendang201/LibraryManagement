@@ -2,7 +2,79 @@
 
 namespace App\Http\Services\Sach;
 
+use App\Models\danhmuc;
+use App\Models\sach;
+use Illuminate\Support\Facades\Session;
+
 class SachService
 {
+    public function getDanhMuc(){
+        return danhmuc::all();
+    }
+
+    protected function isValidPrice($request){
+        if ($request->input('gia')<=0){
+            Session::flash('error', 'Giá sách phải lớn hơn 0');
+            return false;
+        }
+        return true;
+    }
+
+    public function insert($request){
+        $isValidPrice=$this->isValidPrice($request);
+        if ($isValidPrice===false)
+            return false;
+//        dd($request->all());
+        try {
+            $request->except('_token');
+            Sach::create($request->all());
+            Session::flash('success', 'Thêm sách thành công');
+        }
+        catch (\Exception $err){
+            Session::flash('error', 'Thêm sách lỗi');
+            \Log::info($err->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public function getAll(){
+        return sach::with('danhmuc')
+                        ->orderBy('id')->paginate(15);
+    }
+
+    public function update($request, $sach) : bool
+    {
+        $isValidPrice=$this->isValidPrice($request);
+        if ($isValidPrice===false)
+            return false;
+        try{
+            $sach->fill($request->input());
+            $sach->save();
+            Session::flash('success', 'Cập nhật sách thành công');
+        }
+        catch (\Exception $err){
+            Session::flash('error', 'Cập nhật sách lỗi');
+            \Log::info($err->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public function destroy($request){
+        $id=(int) $request->input('id');
+        $sach=sach::where('id', $id)->first();
+        if ($sach){
+            return sach::where('id', $id)->delete();
+        }
+        return false;
+    }
+
+    public function search($request){
+        $keyword = (string) $request->input('keyword');
+        $rs = sach::where('tenSach', 'like', "%".$keyword."%")->get();
+
+        return count($rs) == 0 ? null : $rs;
+    }
 
 }

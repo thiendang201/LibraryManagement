@@ -86,10 +86,11 @@ class Helper
 
     public static function danhMuc($danhMucs){
         $html='';
+        $i=1;
         foreach ($danhMucs as $key=>$danhMuc){
                 $html .= '
                     <tr>
-                        <td>'. $danhMuc->id .'</td>
+                        <td>'. $i++ .'</td>
                         <td>'. $danhMuc->tenDanhMuc .'</td>
                         <td>
                             <a class="edit-btn custom-btn" href="/admin/danhmuc/edit/'. $danhMuc->id .'">
@@ -111,4 +112,38 @@ class Helper
         return $html;
     }
 
+    public static function sach($saches){
+        $html='';
+        $i=1;
+        foreach ($saches as $key=>$sach){
+            $html .= '
+                    <tr>
+                        <td>'. $i++ .'</td>
+                        <td>'. $sach->tenSach .'</td>
+                        <td>'. $sach->moTa .'</td>
+                        <td>'. $sach->soLuong .'</td>
+                        <td>'. $sach->tacGia .'</td>
+                        <td>'. $sach->NXB .'</td>
+                        <td>'.  number_format($sach->gia, 0, ',', '.') . "đ" .'</td>
+                        <td>'. $sach->danhMuc->tenDanhMuc .'</td>
+                        <td><a href="'. $sach->anhBia .'" target="_blank"><img src="'. $sach->anhBia .'" width="100px"></a></td>
+                        <td>
+                            <a class="edit-btn custom-btn" href="/admin/sach/edit/'. $sach->id .'">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a class="remove-btn custom-btn" href="#" onclick="removeRow('. $sach->id . ',\'/admin/sach/destroy\')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                 <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                 <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                             </svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                ';
+
+
+        }
+        return $html;
+    }
 }

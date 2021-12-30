@@ -62,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{danhMuc}', [DanhMucController::class, 'show']);
             Route::post('edit/{danhMuc}', [DanhMucController::class, 'update']);
             Route::DELETE('destroy', [DanhMucController::class, 'destroy']);
+            Route::post('search', [DanhMucController::class, 'search']);
         });
 
         #Sach
@@ -72,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('edit/{sach}', [SachController::class, 'show']);
             Route::post('edit/{sach}', [SachController::class, 'update']);
             Route::DELETE('destroy', [SachController::class, 'destroy']);
+            Route::post('search', [SachController::class, 'search']);
         });
 
         #Upload
