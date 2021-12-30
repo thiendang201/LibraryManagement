@@ -76,4 +76,14 @@ class DanhMucController extends Controller
             'error' => true
         ]);
     }
+
+    public function search(Request $request): JsonResponse
+    {
+        $result = $this->danhMucService->search($request);
+        return response()->json([
+            'list' => $result,
+            'message' => $result != null  ? "" : "Không tìm thấy danh mục nào!",
+            'keyword' => $request->input('keyword').gettype($result)
+        ]);
+    }
 }

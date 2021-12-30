@@ -81,4 +81,14 @@ class SachController extends Controller
             'error' => true
         ]);
     }
+
+    public function search(Request $request): JsonResponse
+    {
+        $result = $this->sachService->search($request);
+        return response()->json([
+            'list' => $result,
+            'message' => $result != null  ? "" : "Không tìm thấy sách nào!",
+            'keyword' => $request->input('keyword').gettype($result)
+        ]);
+    }
 }

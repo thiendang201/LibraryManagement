@@ -20,16 +20,16 @@
                 <div class="card-content">
                     <div class="card-body">
                         <div class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm sách">
+                            <input type="text" id="search-sach" class="form-control" placeholder="Tìm kiếm sách">
                             <div class="form-control-icon">
                                 <i class="bi bi-search"></i>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-lg table-hover-custom">
+                            <table id="sach-table" class="table table-lg table-hover-custom">
                                 <thead>
                                 <tr>
-                                    <th style="width: 50px">ID</th>
+                                    <th style="width: 50px">STT</th>
                                     <th>Tên sách</th>
                                     <th>Mô tả</th>
                                     <th>Số lượng</th>
@@ -46,6 +46,7 @@
                                 {!! \App\Helpers\Helper::sach($saches) !!}
                                 </tbody>
                             </table>
+                            <div id="saches-null" class="null-feedback"></div>
                             {!! $saches->links() !!}
                         </div>
                     </div>

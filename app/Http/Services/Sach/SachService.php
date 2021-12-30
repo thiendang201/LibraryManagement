@@ -70,4 +70,11 @@ class SachService
         return false;
     }
 
+    public function search($request){
+        $keyword = (string) $request->input('keyword');
+        $rs = sach::where('tenSach', 'like', "%".$keyword."%")->get();
+
+        return count($rs) == 0 ? null : $rs;
+    }
+
 }

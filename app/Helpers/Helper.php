@@ -86,10 +86,11 @@ class Helper
 
     public static function danhMuc($danhMucs){
         $html='';
+        $i=1;
         foreach ($danhMucs as $key=>$danhMuc){
                 $html .= '
                     <tr>
-                        <td>'. $danhMuc->id .'</td>
+                        <td>'. $i++ .'</td>
                         <td>'. $danhMuc->tenDanhMuc .'</td>
                         <td>
                             <a class="edit-btn custom-btn" href="/admin/danhmuc/edit/'. $danhMuc->id .'">
@@ -113,10 +114,11 @@ class Helper
 
     public static function sach($saches){
         $html='';
+        $i=1;
         foreach ($saches as $key=>$sach){
             $html .= '
                     <tr>
-                        <td>'. $sach->id .'</td>
+                        <td>'. $i++ .'</td>
                         <td>'. $sach->tenSach .'</td>
                         <td>'. $sach->moTa .'</td>
                         <td>'. $sach->soLuong .'</td>
