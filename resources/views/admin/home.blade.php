@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item {{Session::has('phieumuon') ? 'active' : ''}} ">
-                        <a href="index.html" class="sidebar-link">
+                        <a href="/admin/phieumuon/view" class="sidebar-link">
                             <i class="bi bi-card-list"></i>
                             <span>QL Phiếu Mượn</span>
                         </a>
