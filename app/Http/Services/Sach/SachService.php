@@ -4,6 +4,7 @@ namespace App\Http\Services\Sach;
 
 use App\Models\danhmuc;
 use App\Models\sach;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class SachService
@@ -72,7 +73,10 @@ class SachService
 
     public function search($request){
         $keyword = (string) $request->input('keyword');
-        $rs = sach::where('tenSach', 'like', "%".$keyword."%")->get();
+        $rs =  DB::table('saches')
+            ->join('danhmucs', 'danhmucs.id', 'danhMuc_id')
+            ->where('tenSach', 'like', "%".$keyword."%")
+            ->get(['saches.id', 'tenSach', 'moTa', 'soLuong', 'tacGia', 'NXB', 'gia', 'anhBia','tenDanhMuc']);
 
         return count($rs) == 0 ? null : $rs;
     }

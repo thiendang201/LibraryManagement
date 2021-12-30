@@ -5,7 +5,7 @@
         <h3>Quản Lý Sách</h3>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-9">
+        <div class="col-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -30,15 +30,15 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 50px">STT</th>
-                                    <th>Tên sách</th>
-                                    <th>Mô tả</th>
-                                    <th>Số lượng</th>
-                                    <th>Tác giả</th>
-                                    <th>Nhà xuất bản</th>
-                                    <th>Giá tiền</th>
-                                    <th>Thể loại</th>
-                                    <th>Ảnh minh hoạ</th>
-                                    <th>Update</th>
+                                    <th>TÊN SÁCH</th>
+                                    <th>MÔ TẢ</th>
+                                    <th>SỐ LƯỢNG</th>
+                                    <th>TÁC GIẢ</th>
+                                    <th>NHÀ XUẤT BẢN</th>
+                                    <th>GIÁ TIỀN</th>
+                                    <th>THỂ LOẠI</th>
+                                    <th>ẢNH MINH HỌA</th>
+                                    <th>THAO TÁC</th>
                                     {{--                                    <th style="width: 100px">&nbsp;</th>--}}
                                 </tr>
                                 </thead>
