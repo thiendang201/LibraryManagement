@@ -103,7 +103,7 @@ function renderSaches(list) {
                 <td class="text-center">${sach.tacGia}</td>
                 <td class="text-center">${sach.NXB}</td>
                 <td class="text-center">${sach.gia}</td>
-                <td class="text-center">${sach.danhMuc.tenDanhMuc}</td>
+                <td class="text-center">${sach.tenDanhMuc}</td>
                 <td class="text-center">${sach.anhBia}</td>
                 <td class="text-center">
                     <a class="edit-btn custom-btn" href="edit/${sach.id}"><i class="bi bi-pencil-fill"></i></a>
@@ -152,6 +152,8 @@ function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
     const input = document.getElementById(idInput);
     const nullFeedBack = document.getElementById(idNullFeedback);
     const table = document.getElementById(idTable);
+
+    if(input == null) return;
 
     input.onkeyup = function () {
         let keyword = this.value.trim();

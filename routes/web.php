@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\SachController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PhieuMuonController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,17 @@ Route::middleware(['auth'])->group(function () {
             Route::post('edit/{user}', [UserController::class, 'update']);
             Route::DELETE('destroy', [UserController::class, 'destroy']);
             Route::post('search', [UserController::class, 'search']);
+        });
+
+        #PhieuMuon
+        Route::prefix('phieumuon')->group(function () {
+            Route::get('view', [PhieuMuonController::class, 'index']);
+            Route::get('add', [PhieuMuonController::class, 'create']);
+            Route::post('add', [PhieuMuonController::class, 'store']);
+            Route::get('edit/{phieumuon}', [PhieuMuonController::class, 'show']);
+            Route::post('edit/{phieumuon}', [PhieuMuonController::class, 'update']);
+            Route::DELETE('destroy', [PhieuMuonController::class, 'destroy']);
+            Route::post('search', [PhieuMuonController::class, 'search']);
         });
 
         #DanhMuc
