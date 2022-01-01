@@ -213,5 +213,32 @@ Search('search-user', '/admin/users/search', 'users-null', 'user-table', renderU
 Search('search-sach', '/admin/sach/search', 'saches-null', 'sach-table', renderSaches);
 Search('search-danhMuc', '/admin/danhmuc/search', 'danhMucs-null', 'danhMuc-table', renderDanhMucs);
 
-const userSelect = document.getElementById('user-select');
-userSelect && $('#user-select').selectpicker();
+const chartPm =  document.getElementById('PMChart');
+console.log(chartPm.dataset.dangMuon);
+console.log(chartPm.dataset.daTra);
+
+const data = {
+    labels: [
+        'Phiếu đang mượn',
+        'Phiếu đã trả',
+    ],
+    datasets: [{
+        label: 'Biểu đồ phiếu mượn',
+        data: [chartPm.dataset.dangmuon, chartPm.dataset.datra],
+        backgroundColor: [
+            '#553bfc',
+            '#02c3f9'
+        ],
+        hoverOffset: 4
+    }]
+}
+
+const config = {
+    type: 'doughnut',
+    data: data,
+};
+
+const PMChar = new Chart(
+   chartPm,
+    config
+);

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .edit-btn {
     color: #629CC6;
     background-color: rgba(192,231,253,0.3);
@@ -170,7 +172,7 @@
     max-height: 200px;
     opacity: 1;
     overflow-y: scroll;
-    margin-top: 92px;
+    margin-top: 110px;
 }
 
 .select-box .options-container.active + .selected::after {
@@ -179,7 +181,7 @@
 }
 
 .select-box .options-container::-webkit-scrollbar {
-    width: 4px;
+    width: 0px;
     border-radius: 0 2px 2px 0;
 }
 
@@ -268,4 +270,109 @@
 .sm-check label {
     font-size: 14px;
 }
+
+.custom-tk {
+    min-height: 84vh;
+    display: grid;
+    place-content: center;
+    grid-template-areas:
+    "div1 div2 div3"
+    "div4 div2 div3"
+    "div5 div5 div3"
+    "div5 div5 div3";
+
+    grid-gap: 15px;
+}
+
+.custom-tk > div {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(192,231,253,0.6);
+    transition: all .5s;
+    z-index: 1;
+}
+
+.custom-tk > div:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 36px 24px 50px 13px rgba(192,231,253,0.3);
+    z-index: 30;
+}
+
+.custom-tk > .div2,
+.custom-tk > .div3,
+.custom-tk > .div1 {
+    min-width: 300px;
+}
+
+.custom-tk > .div1,
+.custom-tk > .div4 {
+    display: flex;
+    align-items: center;
+}
+
+.custom-tk > .div5 {
+    max-height: 500px;
+}
+/*.custom-tk > .div2 {*/
+/*    max-height: 250px;*/
+/*}*/
+
+.ic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ic.ic-grey {
+    background-color: #eeebff;
+}
+
+.ic.ic-grey i {
+    color: #553bfc;
+}
+
+
+.ic i {
+    font-size: 20px;
+    transform: translate(-2px, -2px);
+}
+
+.big-text {
+    margin-left: 20px;
+}
+
+.big-size {
+    font-size: 26px;
+    transform: scaleX(1.2) translateX(10px);
+    font-family: 'Anton', sans-serif;
+}
+
+.nor-size {
+    font-size: 13px;
+    opacity: .7;
+}
+
+.ic.ic-light-blue i{
+    color: #0ec6f9;
+}
+.ic.ic-light-blue{
+    background-color: #e5f9fe;
+}
+
+.custom-size {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.custom-size-16 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-body-custom {}
+
 

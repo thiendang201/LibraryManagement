@@ -7,6 +7,32 @@ use Carbon\Carbon;
 class Helper
 {
 
+    public static function PmMoi($list, $sachs) {
+        $html = '';
+        $stt = 1;
+        foreach ($list as $key => $value) {
+            $avatar = $value->GioiTinh == 0 ? 'avt-nu.png' : 'avt-nam.png';
+            $html .= '<tr class="position-relative">
+                                <td class="">
+                                    <div class="d-flex align-items-center position-relative stt ma-pm" data-pm="Mã phiếu: ' . $value->id . '" data-stt="' . $stt . '">
+                                        <div class="avatar">
+                                            <img src="/template/admin/assets/images/faces/' . $avatar . '">
+                                        </div>
+                                        <a href="/admin" class="custom-size ms-3 mb-0">' . $value->name . '</a>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div>
+                                        ' . self::renderSachInfo($sachs, $value->id) . '
+                                    </div>
+                                </td>
+                                <td class="text-center small">' .   Carbon::parse($value->ngaymuon)->format('d/m/Y') . '</td>
+
+                            </tr>';
+        }
+        return $html;
+    }
+
     public static function sachMuon($saches) {
         $html = '';
         $stt = 1;
