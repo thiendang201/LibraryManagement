@@ -18,6 +18,10 @@ class SachService
             Session::flash('error', 'Giá sách phải lớn hơn 0');
             return false;
         }
+        if ($request->input('soLuong')<=0){
+            Session::flash('error', 'Số lượng sách phải lớn hơn 0');
+            return false;
+        }
         return true;
     }
 
@@ -41,7 +45,7 @@ class SachService
 
     public function getAll(){
         return sach::with('danhmuc')
-                        ->orderBy('id')->paginate(15);
+                        ->orderBy('id')->paginate(10);
     }
 
     public function update($request, $sach) : bool

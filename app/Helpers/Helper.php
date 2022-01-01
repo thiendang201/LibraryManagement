@@ -193,7 +193,7 @@ class Helper
         foreach ($danhMucs as $key=>$danhMuc){
                 $html .= '
                     <tr>
-                        <td>'. $i++ .'</td>
+                        <td>'. $danhMucs->firstItem()+$key .'</td>
                         <td>'. $danhMuc->tenDanhMuc .'</td>
                         <td>
                             <a class="edit-btn custom-btn" href="/admin/danhmuc/edit/'. $danhMuc->id .'">
@@ -221,7 +221,7 @@ class Helper
         foreach ($saches as $key=>$sach){
             $html .= '
                     <tr>
-                        <td>'. $i++ .'</td>
+                        <td>'. $saches->firstItem()+$key .'</td>
                         <td>'. $sach->tenSach .'</td>
                         <td>'. $sach->moTa .'</td>
                         <td>'. $sach->soLuong .'</td>

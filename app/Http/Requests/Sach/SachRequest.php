@@ -26,10 +26,10 @@ class SachRequest extends FormRequest
         return [
             'tenSach'=>'required',
             'moTa'=>'required',
-            'soLuong'=>'required',
+            'soLuong'=>'required|numeric',
             'tacGia'=>'required',
             'NXB'=>'required',
-            'gia'=>'required',
+            'gia'=>'required|numeric',
             'danhMuc_id'=>'required',
             'anhBia'=>'required',
         ];
@@ -44,7 +44,9 @@ class SachRequest extends FormRequest
             'NXB.required' => 'Vui lòng nhập nhà xuất bản',
             'gia.required' => 'Vui lòng nhập giá',
             'danhMuc_id.required' => 'Vui lòng chọn thể loại',
-            'anhBia.required' => 'Vui lòng nhập chọn ảnh',
+            'anhBia.required' => 'Vui lòng chọn ảnh',
+            'gia.numeric'=>'Vui lòng nhập số cho trường giá sách',
+            'soLuong.numeric'=>'Vui lòng nhập số cho trường số lượng',
         ];
     }
 }

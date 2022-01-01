@@ -40,7 +40,7 @@ class SachController extends Controller
     {
 //        dd($request->input());
         $this->sachService->insert($request);
-        return redirect()->back();
+        return redirect('admin/sach/list');
     }
 
     public function index()

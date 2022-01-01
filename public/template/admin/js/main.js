@@ -59,6 +59,12 @@ function renderUsers(list) {
         console.log(user);
         html += `
             <tr>
+                <th>HỌ TÊN</th>
+                <th class="text-center">SỐ ĐIỆN THOẠI</th>
+                <th class="text-center">QUYỀN</th>
+                <th class="text-center">THAO TÁC</th>
+            </tr>
+            <tr>
                      <td class="col-3">
                          <div class="d-flex align-items-center">
                               <div class="avatar avatar-md">
@@ -92,11 +98,25 @@ function renderSaches(list) {
 
     if(list == null) return "";
 
+    let i=1;
+
     list.forEach(sach => {
         console.log(sach);
         html += `
             <tr>
-                <td class="text-center">${sach.id}</td>
+                <th style="width: 50px">STT</th>
+                <th>TÊN SÁCH</th>
+                <th>MÔ TẢ</th>
+                <th>SỐ LƯỢNG</th>
+                <th>TÁC GIẢ</th>
+                <th>NHÀ XUẤT BẢN</th>
+                <th>GIÁ TIỀN</th>
+                <th>THỂ LOẠI</th>
+                <th>ẢNH MINH HỌA</th>
+                <th>THAO TÁC</th>
+            </tr>
+            <tr>
+                <td class="text-center">${i++}</td>
                 <td class="text-center">${sach.tenSach}</td>
                 <td class="text-center">${sach.moTa}</td>
                 <td class="text-center">${sach.soLuong}</td>
@@ -104,7 +124,7 @@ function renderSaches(list) {
                 <td class="text-center">${sach.NXB}</td>
                 <td class="text-center">${sach.gia}</td>
                 <td class="text-center">${sach.tenDanhMuc}</td>
-                <td class="text-center">${sach.anhBia}</td>
+                <td class="text-center"><a href="${sach.anhBia}" target="_blank"><img src="${sach.anhBia}" width="100px"></a></td>
                 <td class="text-center">
                     <a class="edit-btn custom-btn" href="edit/${sach.id}"><i class="bi bi-pencil-fill"></i></a>
                          <button class="remove-btn custom-btn" onclick="removeRow(${sach.id},'/admin/sach/destroy')" >
@@ -129,6 +149,11 @@ function renderDanhMucs(list) {
     list.forEach(danhMuc => {
         console.log(danhMuc);
         html += `
+            <tr>
+                <th style="width: 50px">STT</th>
+                <th>Tên danh mục</th>
+                <th>Update</th>
+            </tr>
             <tr>
                      <td class="text-center">${danhMuc.id}</td>
                      <td class="text-center">${danhMuc.tenDanhMuc}</td>

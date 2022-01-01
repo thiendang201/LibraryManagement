@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 class DanhMucService
 {
     public function getAll(){
-        return DanhMuc::orderBy('id')->paginate(20);
+        return DanhMuc::orderBy('id')->paginate(10);
     }
 
     public function create($request)
