@@ -40,7 +40,9 @@ GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra');
     }
 
     public function getUser()
-    {   $raw = $this->GetList();
+    {
+        $newUsers = DB::select('SELECT id as idNG, name FROM users WHERE users.quyen != 1 AND id NOT IN (SELECT DISTINCT idNG FROM phieumuons)');
+        $raw = $this->GetList();
         $list = [];
         foreach ($raw as $key => $value) {
             if($value->datra < $value->tongsach) {
@@ -55,7 +57,7 @@ GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra');
             }
         }
 
-        return $raw;
+        return array_merge($raw, $newUsers);
     }
 
     public function getSaches(){
@@ -116,6 +118,8 @@ GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra');
             Session::flash('error', $err->getMessage());
             return false;
         }
+
+        Session::flash('success', 'Thêm mới thành công');
         return true;
     }
 

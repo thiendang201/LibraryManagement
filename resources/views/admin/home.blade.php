@@ -23,7 +23,7 @@
                     <li class="sidebar-title">Menu</li>
 
                     <li class="sidebar-item {{Session::has('thongke') ? 'active' : ''}}">
-                        <a href="index.html" class="sidebar-link">
+                        <a href="/admin/thongke/view" class="sidebar-link">
                             <i class="bi bi-bar-chart"></i>
                             <span>Thống Kê</span>
                         </a>

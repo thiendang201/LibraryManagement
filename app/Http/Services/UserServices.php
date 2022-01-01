@@ -43,6 +43,7 @@ class UserServices
             Session::flash('error', $err->getMessage());
             return false;
         }
+        Session::flash('success', 'Thêm mới thành công');
         return true;
     }
 

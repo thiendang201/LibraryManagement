@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PhieuMuonController;
+use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,12 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('home', [MainController::class, 'index']);
+
+        #User
+        Route::prefix('thongke')->group(function () {
+            Route::get('view', [ThongKeController::class, 'index']);
+            Route::post('query', [ThongKeController::class, 'query']);
+        });
 
         #User
         Route::prefix('users')->group(function () {
