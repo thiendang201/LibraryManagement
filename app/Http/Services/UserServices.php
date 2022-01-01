@@ -11,7 +11,7 @@ class UserServices
 {
     public function getList()
     {
-        return User::all(); //->paginate(2);
+        return User::orderBy('id')->paginate(1);
     }
 
     public function NewUsers(int $limit) {

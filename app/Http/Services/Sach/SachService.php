@@ -45,7 +45,7 @@ class SachService
 
     public function getAll(){
         return sach::with('danhmuc')
-                        ->orderBy('id')->paginate(10);
+                        ->orderBy('id')->paginate(1);
     }
 
     public function update($request, $sach) : bool

@@ -40,9 +40,11 @@
                                 </tbody>
                             </table>
                             <div id="danhMucs-null" class="null-feedback"></div>
-                            {!! $danhMucs->links() !!}
+
                         </div>
+
                     </div>
+                    {!! $danhMucs->links('pagination::bootstrap-4') !!}
                 </div>
             </div>
         </div>

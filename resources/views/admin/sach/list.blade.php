@@ -47,7 +47,7 @@
                                 </tbody>
                             </table>
                             <div id="saches-null" class="null-feedback"></div>
-                            {!! $saches->links() !!}
+                            {!! $saches->links('pagination::bootstrap-4') !!}
                         </div>
                     </div>
                 </div>
