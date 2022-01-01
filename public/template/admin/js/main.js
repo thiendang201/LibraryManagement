@@ -172,6 +172,75 @@ function renderDanhMucs(list) {
     });
     return html;
 }
+//
+// function getHtml(value, stt, saches, html) {
+//     let date = Carbon::now()->format('Y-m-d');
+//
+//     $quaHan = "";
+//     $qua_han_txt = "";
+//     if ($value->datra < $value->tongsach && $value->ngayhentra < $date){
+//         $quaHan = "qua_han";
+//         $qua_han_txt = "qua_han_txt";
+//     }
+//     $avatar = $value->GioiTinh == 0 ? 'avt-nu.png' : 'avt-nam.png';
+//     $html .= '<tr class="position-relative '.$quaHan.'">
+//     <td class="col-3">
+//         <div class="d-flex align-items-center position-relative stt ma-pm" data-pm="Mã phiếu: ' . $value->id . '" data-stt="' . $stt . '">
+//         <div class="avatar avatar-lg">
+//         <img src="/template/admin/assets/images/faces/' . $avatar . '">
+//         </div>
+//     <a href="/admin" class="font-bold ms-3 mb-0">' . $value->name . '</a>
+// </div>
+// </td>
+//     <td class="text-center">
+//         <div>
+//             ' . self::renderSachInfo($sachs, $value->id) . '
+//         </div>
+//     </td>
+//     <td class="text-center">
+//         <div class="progress progress-sm progress-info mt-4">
+//             <div class="progress-bar" role="progressbar" style="width: calc(100% * ' . $value->datra . '/' . $value->tongsach . ')" aria-valuenow="' . $value->datra . '" aria-valuemin="0" aria-valuemax="' . $value->tongsach . '"></div>
+//         </div>
+//         <span class="small">' . $value->datra . '/' . $value->tongsach . '</span>
+//     </td>
+//     <td class="text-center '.$qua_han_txt.' small">' .   Carbon::parse($value->ngaymuon)->format('d/m/Y') . ' - ' . Carbon::parse($value->ngayhentra)->format('d/m/Y') . '</td>
+//
+//     <td class="text-center">
+//         <a class="edit-btn custom-btn" href="edit/' . $value->id . '"><i class="bi bi-pencil-fill"></i></a>
+//         <button class="remove-btn custom-btn" onclick="removeRow(' . $value->id . ',\'/admin/phieumuon/destroy\')" >
+//             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+//                 <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+//                 <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+//             </svg>
+//         </button>
+//
+//     </td>
+// </tr>';
+//     return $html;
+// }
+//
+// function renderDangMuon(list, saches){
+//     let html = '';
+//     let stt = 1;
+//     list.forEach(item => {
+//         if (item.datra < item.tongsach) {
+//             html = getHtml( item, stt++, saches, html);
+//         }
+//     })
+//
+//     return html;
+// }
+// function renderDatra(list, saches){
+//     let html = '';
+//     let stt = 1;
+//     list.forEach(item => {
+//         if (item.datra = item.tongsach) {
+//             html = getHtml( item, stt++, saches, html);
+//         }
+//     })
+//
+//     return html;
+// }
 
 function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
     const input = document.getElementById(idInput);
@@ -192,12 +261,6 @@ function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
                     data: {keyword},
                     url: url,
                     success: function (result) {
-                        // if(renderFunc!=null) {
-                        //     table.innerHTML = renderFunc(result.list);
-                        // }
-                        // else{
-                        //     table.innerHTML=result.list;
-                        // }
                         table.innerHTML = renderFunc(result.list);
                         nullFeedBack.innerText = result.message;
                     }
@@ -207,16 +270,43 @@ function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
     }
 }
 
-
-
 Search('search-user', '/admin/users/search', 'users-null', 'user-table', renderUsers);
 Search('search-sach', '/admin/sach/search', 'saches-null', 'sach-table', renderSaches);
 Search('search-danhMuc', '/admin/danhmuc/search', 'danhMucs-null', 'danhMuc-table', renderDanhMucs);
 
-const chartPm =  document.getElementById('PMChart');
-console.log(chartPm.dataset.dangMuon);
-console.log(chartPm.dataset.daTra);
+function SearchPM() {
+    const input = document.getElementById('search-pm');
 
+    if(input == null) return;
+
+    input.onkeyup = function () {
+        let keyword = this.value.trim();
+
+        setTimeout(() => {
+            let text = this.value.trim();
+            if (text === keyword) {
+                const nullFeedBack = document.querySelector(".tab-pane.active").querySelector("null-feedback");
+                const table = document.querySelector(".tab-pane.active").querySelector("table");
+
+                $.ajax({
+                    type: 'post',
+                    datatype: 'JSON',
+                    data: {keyword},
+                    url: '/admin/phieumuon/search',
+                    success: function (result) {
+                        // if(table.id == "dangmuon-table")
+                        //     table.innerHTML = renderDangMuon(result.list, result.saches);
+                        // else
+                        //     table.innerHTML = renderDatra(result.list, result.saches);
+                        nullFeedBack.innerText = result.message;
+                    }
+                })
+            }
+        }, 200);
+    }
+}
+
+const chartPm =  document.getElementById('PMChart');
 const data = {
     labels: [
         'Phiếu đang mượn',

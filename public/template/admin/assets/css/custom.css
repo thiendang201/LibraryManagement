@@ -142,6 +142,24 @@
     font-weight: bold;
 }
 
+.qua_han {
+    background-color: #fff5f5;
+}
+
+.qua_han:hover {
+    background-color: #ffecec !important;
+}
+
+.qua_han_txt::after {
+    content: "Quá hạn";
+    display: block;
+    position: center;
+    bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #dc132a;
+}
 
 .select-box {
     position: relative;
@@ -314,9 +332,9 @@
 .custom-tk > .div5 {
     max-height: 500px;
 }
-/*.custom-tk > .div2 {*/
-/*    max-height: 250px;*/
-/*}*/
+.custom-tk > .div3 {
+    max-height: 550px;
+}
 
 .ic {
     width: 50px;
@@ -346,13 +364,13 @@
 }
 
 .big-size {
-    font-size: 26px;
+    font-size: 46px;
     transform: scaleX(1.2) translateX(10px);
     font-family: 'Anton', sans-serif;
 }
 
 .nor-size {
-    font-size: 13px;
+    font-size: 16px;
     opacity: .7;
 }
 

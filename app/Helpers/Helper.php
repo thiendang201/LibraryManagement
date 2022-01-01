@@ -14,7 +14,7 @@ class Helper
             $avatar = $value->GioiTinh == 0 ? 'avt-nu.png' : 'avt-nam.png';
             $html .= '<tr class="position-relative">
                                 <td class="">
-                                    <div class="d-flex align-items-center position-relative stt ma-pm" data-pm="Mã phiếu: ' . $value->id . '" data-stt="' . $stt . '">
+                                    <div class="d-flex align-items-center position-relative stt ma-pm" data-pm="Mã phiếu: ' . $value->id . '" data-stt="' . $stt++ . '">
                                         <div class="avatar">
                                             <img src="/template/admin/assets/images/faces/' . $avatar . '">
                                         </div>
@@ -285,8 +285,17 @@ class Helper
      */
     private static function getHtml($value, int $stt, $sachs, string $html): string
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = Carbon::now()->format('Y-m-d');
+
+        $quaHan = "";
+        $qua_han_txt = "";
+        if ($value->datra < $value->tongsach && $value->ngayhentra < $date){
+            $quaHan = "qua_han";
+            $qua_han_txt = "qua_han_txt";
+        }
         $avatar = $value->GioiTinh == 0 ? 'avt-nu.png' : 'avt-nam.png';
-        $html .= '<tr class="position-relative">
+        $html .= '<tr class="position-relative '.$quaHan.'">
                                 <td class="col-3">
                                     <div class="d-flex align-items-center position-relative stt ma-pm" data-pm="Mã phiếu: ' . $value->id . '" data-stt="' . $stt . '">
                                         <div class="avatar avatar-lg">
@@ -306,7 +315,7 @@ class Helper
                                     </div>
                                     <span class="small">' . $value->datra . '/' . $value->tongsach . '</span>
                                 </td>
-                                <td class="text-center small">' .   Carbon::parse($value->ngaymuon)->format('d/m/Y') . ' - ' . Carbon::parse($value->ngayhentra)->format('d/m/Y') . '</td>
+                                <td class="text-center '.$qua_han_txt.' small">' .   Carbon::parse($value->ngaymuon)->format('d/m/Y') . ' - ' . Carbon::parse($value->ngayhentra)->format('d/m/Y') . '</td>
 
                                 <td class="text-center">
                                     <a class="edit-btn custom-btn" href="edit/' . $value->id . '"><i class="bi bi-pencil-fill"></i></a>

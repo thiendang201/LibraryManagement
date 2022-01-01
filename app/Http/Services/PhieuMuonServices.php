@@ -16,13 +16,14 @@ class PhieuMuonServices
     public function GetList()
     {
 
-        return DB::select('SELECT  u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, COALESCE(datra, 0) as datra, COUNT(ct.idSach) tongsach
+        return DB::select('SELECT u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, COALESCE(datra, 0) as datra, COUNT(ct.idSach) tongsach , max(ngayTra) as ngaytra
                                 FROM phieumuons pm
                                 JOIN users u on pm.idNG = u.id
                                 JOIN chitietphieumuons ct on pm.id = ct.idPM
                                 LEFT JOIN (SELECT idPM, COUNT(idSach) datra FROM `chitietphieumuons` WHERE ngayTra IS NOT NULL
                                 GROUP BY idPM) dem on dem.idPM = pm.id
-                                GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra');
+                                GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra
+                                ORDER BY ngaymuon desc, pm.id desc');
 
     }
 

@@ -23,7 +23,7 @@
         <div class="div3" style="grid-area: div3">
             <div class="card">
                 <div class="card-header">
-                    <h4>Top bạn đọc mới</h4>
+                    <h4>Top {{count($thongke->listNewUsers)}} bạn đọc mới</h4>
                 </div>
                 <div class="card-content pb-4">
                     {!! \App\Helpers\Helper::newUsers($thongke->listNewUsers) !!}
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="div5" style="grid-area: div5">
-            <h5>Phiếu mượn mới</h5>
+            <h5>Top {{count($thongke->listNewPMs)}} phiếu mượn mới</h5>
             <div class="table-responsive">
                 <table id="user-table" class="table table-lg table-hover-custom">
                     <thead>

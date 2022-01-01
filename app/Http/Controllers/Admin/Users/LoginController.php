@@ -43,7 +43,7 @@ class LoginController extends Controller
 //            dd($this->getUser($request));
             $role=$this->getUser($request);
             if ($role==1)
-                return redirect()->route('admin');
+                return redirect('/admin/thongke/view');
             else{
                 Session::flash('error', 'Vui lòng đăng nhập với tài khoản admin');
                 return redirect()->back();

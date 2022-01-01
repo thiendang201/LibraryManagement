@@ -51,7 +51,7 @@ class ThongKeServices
                                 JOIN chitietphieumuons ct on pm.id = ct.idPM
                                 WHERE ngaymuon >= "'.$date.'"
                                 GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG
-                                ORDER BY ngaymuon desc
+                                ORDER BY ngaymuon desc, pm.id desc
                                 LIMIT 0, '.$limit);
     }
 

@@ -11,11 +11,11 @@ class UserServices
 {
     public function getList()
     {
-        return User::orderBy('id')->paginate(1);
+        return User::orderBy('id')->paginate(5);
     }
 
     public function NewUsers(int $limit) {
-        return User::orderbyDesc('created_at')->offset(0)->limit($limit)->get();
+        return User::orderbyDesc('created_at')->where('quyen' , '<>', 1)->offset(0)->limit($limit)->get();
     }
 
     public function Create($request): bool
