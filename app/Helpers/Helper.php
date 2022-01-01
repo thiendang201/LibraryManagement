@@ -118,7 +118,7 @@ class Helper
             $html.= '
                 <tr>
                      <td class="col-4">
-                         <div class="d-flex align-items-center position-relative stt" data-stt="'.$stt++.'">
+                         <div class="d-flex align-items-center position-relative stt" data-stt="'. $list->firstItem()+$key .'">
                               <div class="avatar avatar-md avatar-lg">
                                     <img src="/template/admin/assets/images/faces/'.$avatar.'">
                               </div>

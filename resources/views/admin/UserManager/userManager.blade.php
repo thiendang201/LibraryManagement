@@ -40,6 +40,7 @@
                                 </tbody>
                             </table>
                             <div id="users-null" class="null-feedback"></div>
+                            {!! $list->links('pagination::bootstrap-4') !!}
                         </div>
                     </div>
                 </div>

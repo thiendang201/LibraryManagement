@@ -13,18 +13,28 @@ use function Symfony\Component\Translation\t;
 
 class PhieuMuonServices
 {
-    public function GetList(): array
+    public function GetList()
     {
 
         return DB::select('SELECT  u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, COALESCE(datra, 0) as datra, COUNT(ct.idSach) tongsach
-FROM phieumuons pm
-JOIN users u on pm.idNG = u.id
-JOIN chitietphieumuons ct on pm.id = ct.idPM
-LEFT JOIN (SELECT idPM, COUNT(idSach) datra FROM `chitietphieumuons` WHERE ngayTra IS NOT NULL
-GROUP BY idPM) dem on dem.idPM = pm.id
-GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra');
+                                FROM phieumuons pm
+                                JOIN users u on pm.idNG = u.id
+                                JOIN chitietphieumuons ct on pm.id = ct.idPM
+                                LEFT JOIN (SELECT idPM, COUNT(idSach) datra FROM `chitietphieumuons` WHERE ngayTra IS NOT NULL
+                                GROUP BY idPM) dem on dem.idPM = pm.id
+                                GROUP BY u.id, u.name, u.GioiTinh ,pm.id , ngaymuon, ngayhentra, idNG, datra');
 
     }
+
+//    public function arrayPaginator($array, $request)
+//    {
+//        $page = Input::get('page', 1);
+//        $perPage = 10;
+//        $offset = ($page * $perPage) - $perPage;
+//
+//        return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page,
+//            ['path' => $request->url(), 'query' => $request->query()]);
+//    }
 
     public function GetSach() {
         return DB::table('saches')

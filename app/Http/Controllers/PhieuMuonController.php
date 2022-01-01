@@ -30,9 +30,10 @@ class PhieuMuonController extends Controller
 
     public function index() {
         $this->makeActive();
+        $list=$this->pmService->GetList();
         return view('admin/PhieuMuon/list', [
             'title' => 'Quản lý phiếu mượn',
-            'list' => $this->pmService->GetList(),
+            'list' => $list,
             'sachs' => $this->pmService->GetSach()
         ]);
     }
