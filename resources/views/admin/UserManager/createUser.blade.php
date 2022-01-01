@@ -10,7 +10,7 @@
     </nav>
 
     <div class="page-heading custom-padding-inline">
-        <h3>Cập nhật thông tin người dùng</h3>
+        <h3>Thêm người dùng mới</h3>
     </div>
 
     <div class="container">

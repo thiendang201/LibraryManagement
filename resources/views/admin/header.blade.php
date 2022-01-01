@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="/template/admin/assets/css/app.css">
 <link rel="shortcut icon" href="/template/admin/assets/images/favicon.svg" type="image/x-icon">
 
+<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @yield('header')

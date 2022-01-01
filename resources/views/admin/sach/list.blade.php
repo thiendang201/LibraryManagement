@@ -34,11 +34,11 @@
                                     <th>MÔ TẢ</th>
                                     <th>SỐ LƯỢNG</th>
                                     <th>TÁC GIẢ</th>
-                                    <th>NHÀ XUẤT BẢN</th>
+                                    <th class="w-25">NHÀ XUẤT BẢN</th>
                                     <th>GIÁ TIỀN</th>
                                     <th>THỂ LOẠI</th>
                                     <th>ẢNH MINH HỌA</th>
-                                    <th>THAO TÁC</th>
+                                    <th class="w-auto">THAO TÁC</th>
                                     {{--                                    <th style="width: 100px">&nbsp;</th>--}}
                                 </tr>
                                 </thead>

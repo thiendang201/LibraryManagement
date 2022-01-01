@@ -187,3 +187,6 @@ function Search(idInput, url, idNullFeedback, idTable, renderFunc) {
 Search('search-user', '/admin/users/search', 'users-null', 'user-table', renderUsers);
 Search('search-sach', '/admin/sach/search', 'saches-null', 'sach-table', renderSaches);
 Search('search-danhMuc', '/admin/danhmuc/search', 'danhMucs-null', 'danhMuc-table', renderDanhMucs);
+
+const userSelect = document.getElementById('user-select');
+userSelect && $('#user-select').selectpicker();
